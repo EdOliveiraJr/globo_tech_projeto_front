@@ -3,24 +3,72 @@ name: Deploy para GitHub Pages
 on:
   push:
     branches:
-      - main   # Roda sempre que fizer push na branch main
+      - main
 
 permissions:
-  contents: write   # Dá permissão para escrever na branch gh-pages
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout do código
       - name: Checkout código
         uses: actions/checkout@v3
 
-      # Caso queira rodar build/minificação, coloque aqui.
-      # Para projeto estático simples, basta publicar.
+      # 2. Configurar Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
+      # 3. Instalar dependências para lint e minificação
+      - name: Instalar dependências
+        run: |
+          npm install -g htmlhint stylelint eslint clean-css-cli terser html-minifier
+
+      # 4. Rodar lint no HTML
+      - name: Lint HTML
+        run: |
+          htmlhint "**/*.html" || true
+
+      # 5. Rodar lint no CSS
+      - name: Lint CSS
+        run: |
+          stylelint "**/*.css" || true
+
+      # 6. Rodar lint no JS
+      - name: Lint JS
+        run: |
+          eslint "**/*.js" || true
+
+      # 7. Minificação HTML, CSS e JS
+      - name: Minificar arquivos
+        run: |
+          mkdir dist
+          # Minificar HTML
+          for file in $(find . -name "*.html"); do
+            html-minifier --collapse-whitespace --remove-comments --minify-js true --minify-css true "$file" -o "dist/$(basename $file)"
+          done
+          # Minificar CSS
+          for file in $(find . -name "*.css"); do
+            cleancss -o "dist/$(basename $file)" "$file"
+          done
+          # Minificar JS
+          for file in $(find . -name "*.js"); do
+            terser "$file" -o "dist/$(basename $file)" --compress --mangle
+          done
+          # Copiar assets sem minificação
+          cp -r assets dist/assets || true
+
+      # 8. Deploy para GitHub Pages
       - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./   # Certifique-se que index.html está na raiz do repo
+          publish_dir: ./dist
+
+      # 9. Notificação no log
+      - name: Finalizar Deploy
+        run: echo "✅ Deploy concluído com sucesso em: https://$GITHUB_REPOSITORY_OWNER.github.io/$(basename $GITHUB_REPOSITORY)"
