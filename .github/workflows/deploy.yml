@@ -47,11 +47,6 @@ jobs:
       - name: Minificar arquivos
         run: |
           mkdir dist
-          # exemplo: no step de minificação
-          for file in $SOURCE_DIR/**/*.js; do
-            # se for module, apenas copie
-            cp "$file" "$DIST_DIR/${file#$SOURCE_DIR/}"
-          done
           # Minificar HTML
           for file in $(find . -name "*.html"); do
             html-minifier --collapse-whitespace --remove-comments --minify-js true --minify-css true "$file" -o "dist/$(basename $file)"
@@ -66,6 +61,11 @@ jobs:
           done
           # Copiar assets sem minificação
           cp -r assets dist/assets || true
+          # exemplo: no step de minificação
+          for file in $SOURCE_DIR/**/*.js; do
+            # se for module, apenas copie
+            cp "$file" "$DIST_DIR/${file#$SOURCE_DIR/}"
+          done
 
       # 8. Deploy para GitHub Pages
       - name: Deploy para GitHub Pages
