@@ -26,7 +26,7 @@ jobs:
       # 3. Instalar dependências para lint e minificação
       - name: Instalar dependências
         run: |
-          npm install -g htmlhint stylelint eslint clean-css-cli terser html-minifier
+          npm install -g htmlhint stylelint eslint clean-css-cli
 
       # 4. Rodar lint no HTML
       - name: Lint HTML
@@ -42,7 +42,6 @@ jobs:
       - name: Lint JS
         run: |
           eslint "**/*.js" || true
-
 
       # 7. Deploy para GitHub Pages
       - name: Deploy para GitHub Pages
