@@ -43,6 +43,12 @@ A manipulação dinâmica de dados será implementada apenas no próximo módulo
 
 ---
 
+## Protótipo do Sistema
+
+https://www.canva.com/design/DAGwGJdE6r8/Ycnuueq06VlDi1qsdwnVJQ/view?mode=prototype
+
+---
+
 ## 🗂️ Organização do Projeto
 
 ```bash
