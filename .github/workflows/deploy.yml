@@ -43,29 +43,15 @@ jobs:
         run: |
           eslint "**/*.js" || true
 
-      # 7. Minificação HTML, CSS e JS
-      - name: Minificar arquivos
-        run: |
-          mkdir dist
-          # Minificar HTML
-          for file in $(find . -name "*.html"); do
-            html-minifier --collapse-whitespace --remove-comments --minify-js true --minify-css true "$file" -o "dist/$(basename $file)"
-          done
-          # Minificar CSS
-          for file in $(find . -name "*.css"); do
-            cleancss -o "dist/$(basename $file)" "$file"
-          done
-          # Copiar assets sem minificação
-          cp -r assets dist/assets || true
 
-      # 8. Deploy para GitHub Pages
+      # 7. Deploy para GitHub Pages
       - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
 
-      # 9. Notificação no log
+      # 8. Notificação no log
       - name: Finalizar Deploy
         run: |
           echo "✅ Deploy concluído com sucesso em: https://$GITHUB_REPOSITORY_OWNER.github.io/$(basename $GITHUB_REPOSITORY)"
