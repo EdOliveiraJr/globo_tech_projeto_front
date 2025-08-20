@@ -55,17 +55,8 @@ jobs:
           for file in $(find . -name "*.css"); do
             cleancss -o "dist/$(basename $file)" "$file"
           done
-          # Minificar JS
-          for file in $(find . -name "*.js"); do
-            terser "$file" -o "dist/$(basename $file)" --compress --mangle
-          done
           # Copiar assets sem minificação
           cp -r assets dist/assets || true
-          # exemplo: no step de minificação
-          for file in $SOURCE_DIR/**/*.js; do
-            # se for module, apenas copie
-            cp "$file" "$DIST_DIR/${file#$SOURCE_DIR/}"
-          done
 
       # 8. Deploy para GitHub Pages
       - name: Deploy para GitHub Pages
