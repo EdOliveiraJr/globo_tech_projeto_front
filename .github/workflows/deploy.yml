@@ -23,34 +23,14 @@ jobs:
         with:
           node-version: '18'
 
-      # 3. Instalar dependências para lint e minificação
-      - name: Instalar dependências
-        run: |
-          npm install -g htmlhint stylelint eslint clean-css-cli
-
-      # 4. Rodar lint no HTML
-      - name: Lint HTML
-        run: |
-          htmlhint "**/*.html" || true
-
-      # 5. Rodar lint no CSS
-      - name: Lint CSS
-        run: |
-          stylelint "**/*.css" || true
-
-      # 6. Rodar lint no JS
-      - name: Lint JS
-        run: |
-          eslint "**/*.js" || true
-
-      # 7. Deploy para GitHub Pages
+      # 3. Deploy para GitHub Pages
       - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
 
-      # 8. Notificação no log
+      # 4. Notificação no log
       - name: Finalizar Deploy
         run: |
           echo "✅ Deploy concluído com sucesso em: https://$GITHUB_REPOSITORY_OWNER.github.io/$(basename $GITHUB_REPOSITORY)"
