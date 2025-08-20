@@ -3,7 +3,7 @@
 Este projeto consiste em um **Sistema de Controle de Tarefas**, onde cada usuário pode gerenciar múltiplas listas de tarefas e controlar os itens dentro de cada lista.  
 
 O objetivo principal deste módulo é praticar **estruturação de páginas, estilização e responsividade**, utilizando **dados mockados** diretamente no código HTML.  
-A manipulação dinâmica de dados será implementada apenas no próximo módulo (**FE-JS-002 - Front-End Dinâmico**).
+A manipulação dinâmica de dados será implementada apenas no próximo módulo.
 
 ---
 
