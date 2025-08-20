@@ -71,4 +71,5 @@ jobs:
 
       # 9. Notificação no log
       - name: Finalizar Deploy
-        run: echo "✅ Deploy concluído com sucesso em: https://$GITHUB_REPOSITORY_OWNER.github.io/$(basename $GITHUB_REPOSITORY)"
+        run: |
+          echo "✅ Deploy concluído com sucesso em: https://$GITHUB_REPOSITORY_OWNER.github.io/$(basename $GITHUB_REPOSITORY)"
