@@ -1,5 +1,7 @@
 # 📝 Sistema de Controle de Tarefas (TaskMy)
 
+[![Deploy para GitHub Pages](https://github.com/EdOliveiraJr/globo_tech_projeto_front/actions/workflows/deploy.yml/badge.svg)](https://github.com/EdOliveiraJr/globo_tech_projeto_front/actions/workflows/deploy.yml)
+
 Este projeto consiste em um **Sistema de Controle de Tarefas**, onde cada usuário pode gerenciar múltiplas listas de tarefas e controlar os itens dentro de cada lista.  
 
 O objetivo principal deste módulo é praticar **estruturação de páginas, estilização e responsividade**, utilizando **dados mockados** diretamente no código HTML.  
