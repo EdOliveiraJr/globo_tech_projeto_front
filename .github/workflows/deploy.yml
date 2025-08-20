@@ -5,6 +5,9 @@ on:
     branches:
       - main   # Roda sempre que fizer push na branch main
 
+permissions:
+  contents: write   # Dá permissão para escrever na branch gh-pages
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,14 +16,11 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v3
 
-      # Não tem build, mas se quisesse rodar um minificador/otimizador poderia colocar aqui
-      - name: Configurar Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+      # Caso queira rodar build/minificação, coloque aqui.
+      # Para projeto estático simples, basta publicar.
 
-      - name: Publicar no GitHub Pages
+      - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .   # Raiz do projeto (onde está o index.html)
+          publish_dir: ./   # Certifique-se que index.html está na raiz do repo
