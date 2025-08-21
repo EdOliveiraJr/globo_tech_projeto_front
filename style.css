@@ -1,6 +1,7 @@
 @import './layouts/Header/_header.css';
 @import './layouts/Footer/_footer.css';
 @import './layouts/Main/_main.css';
+@import './pages/TasksView/_tasks-view-style.css';
 
 *{
   margin: 0;
@@ -17,38 +18,11 @@ body {
   flex-direction: column;
 }
 
-.header {
-  display: flex;
-  align-items: base;
-  justify-content: space-between;
-  background-color: #007bff;
-  padding: 1rem;
-  color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-#logout-icon {
-  cursor: pointer;
-  padding: 0.5rem;
-  
-}
-
-#logout-icon:hover {
-  border-radius: 50%;
-  background-color: #07060036;
-}
 
 h1 {
   color: #333;
+  font-weight: lighter;
+  padding: 1rem;
 }
 
 nav a {
@@ -69,35 +43,4 @@ input[type="text"] {
 button {
   padding: 10px 15px;
   margin-left: 10px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  background-color: #fff;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-li button {
-  margin-left: 10px;
-}
-
-@media (max-width: 600px) {
-  body {
-    padding: 10px;
-  }
-  input[type="text"] {
-    width: 100%;
-  }
-  nav a {
-    display: block;
-    margin-bottom: 10px;
-  }
 }

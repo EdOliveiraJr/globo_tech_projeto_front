@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  align-items: base;
+  justify-content: space-between;
+  background-color: #007bff;
+  padding: 1rem;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#logout-icon {
+  cursor: pointer;
+  padding: 0.5rem;
+  
+}
+
+#logout-icon:hover {
+  border-radius: 50%;
+  background-color: #07060036;
+}
