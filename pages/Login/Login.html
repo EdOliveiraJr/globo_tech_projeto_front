@@ -14,7 +14,33 @@
 
 <body>
   <app-main>
-    
+    <div class="login-container">
+      <img src="../../assets/images/logo.png" alt="Logo TaskMy" width="200">
+      <h1>Login</h1>
+      <p>Faça login para continuar</p>
+
+      <form id="loginForm" novalidate method="POST" action="/index.html">
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" required>
+          <span class="error-message" id="email-error"></span>
+        </div>
+
+        <div>
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" placeholder="******" required minlength="6">
+          <span class="error-message" id="password-error"></span>
+        </div>
+
+        <button type="submit">LOGIN</button>
+      </form>
+
+      <p>ou</p>
+
+      <a href="../SignUp/SignUp.html">Criar uma nova conta</a>
+      <a href="../ForgotPassword/ForgotPassword.html">Esqueceu a senha?</a>
+
+    </div>
   </app-main>
 
   <app-footer></app-footer>
