@@ -1,1 +1,59 @@
-<h2>Login</h2>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF--8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Lista de Tarefas</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <script type="module" src="../../layouts/Header/Header.js"></script>
+  <script type="module" src="../../layouts/Main/Main.js"></script>
+  <script type="module" src="../../layouts/Footer/Footer.js"></script>
+  <style>
+    .error-message {
+      color: red;
+      font-size: 0.8em;
+      height: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <app-main>
+    <div class="login-container">
+      <img src="/assets/images/logo.png" alt="Logo TaskMy" width="200">
+      <h1>Login</h1>
+      <p>Faça login para continuar</p>
+
+      <form id="loginForm" novalidate method="POST" action="/index.html">
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" required>
+          <span class="error-message" id="email-error"></span>
+        </div>
+
+        <div>
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" placeholder="******" required minlength="6">
+          <span class="error-message" id="password-error"></span>
+        </div>
+
+        <button type="submit">LOGIN</button>
+      </form>
+
+      <p>ou</p>
+
+      <a href="/pages/SignUp/SignUp.html">Criar uma nova conta</a>
+      <a href="/pages/ForgotPassword/ForgotPassword.html">Esqueceu a senha?</a>
+
+    </div>
+  </app-main>
+
+  <app-footer></app-footer>
+<script src="./loginScript.js"></script>
+</body>
+</html>
+</body>
+
+</html>
