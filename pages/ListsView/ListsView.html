@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskMy</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <base href="/globo_tech_projeto_front/">
+  <script src="/script.js"></script>
+  <script type="module" src="/layouts/Footer/Footer.js"></script>
+  <script type="module" src="/layouts/Header/Header.js"></script>
+  <script type="module" src="/layouts/Main/Main.js"></script>
+</head>
+
+<body>
+  <app-header></app-header>
+  <app-main>
+    <div class="lists-view-container">
+      <h1>Lista de Tarefas</h1>
+      <div class="lists-input-container">
+        <input type="text" id="newListInput" placeholder="Insira o nome da lista">
+        <button id="addListButton"><i class="material-icons">add</i></button>
+      </div>
+      
+      <div class="lists-list">
+        <ul id="listsList">
+          <li> 
+            <div class="list-item">
+              <label>Lista de tarefas de Casa</label>
+            </div>
+          </li>
+
+          <li> 
+            <div class="list-item">
+              <label>Lista de tarefas do Trabalho</label>
+            </div>
+          </li>
+
+          <li> 
+            <div class="list-item">
+              <label>Lista de tarefas da Globotech</label>
+            </div>
+          </li>
+
+          <li> 
+            <div class="list-item">
+              <label>Lista de tarefas da Faculdade</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </app-main>
+  <app-footer></app-footer>
+</body>
+  
+</html>
