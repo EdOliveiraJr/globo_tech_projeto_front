@@ -13,7 +13,6 @@ class Main extends HTMLElement {
           gap: 1rem;
           height: 100%;
           width: 100%;
-          margin-top: 3.75rem;
         }
       </style>
       <main class="main">
