@@ -1,0 +1,202 @@
+body,
+html {
+    margin: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #f1f1f1;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.left-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    position: relative;
+}
+
+.left-side .logo {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    z-index: 1;
+}
+
+.left-side .marca-dagua {
+    position: absolute;
+    width: 1000px;
+    bottom: -300px;
+    left: -100px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(135deg, #0e167e 0%, #3477ff 100%);
+    z-index: 1;
+    padding: 0;
+    overflow-y: auto; /* Adicionado para permitir rolagem se o conteúdo for grande */
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    padding: 40px 0 20px 0; /* Padding ajustado */
+}
+
+.header h1 {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.header h3 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    font-size: 19px;
+}
+
+.header .login-link {
+    color: #fff;
+    font-size: 1em;
+}
+
+.header .login-link a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.header .login-link a:hover {
+    text-decoration: underline;
+}
+
+.form-area {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 40px 0; /* Padding ajustado */
+}
+
+form {
+    width: 100%;
+    max-width: 340px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px; /* Margem ajustada */
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px; /* Margem ajustada */
+    color: #444;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bfbfbf;
+    border-radius: 5px;
+    font-size: 15px;
+    background: #fbfbfb;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px 0;
+    margin-top: 10px; /* Espaçamento adicionado */
+    background: linear-gradient(90deg, #1344c4 0%, #3477ff 100%);
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #3477ff 0%, #1344c4 100%);
+}
+
+.error-message {
+      color: red;
+      font-size: 0.8em;
+      height: 1em;
+      display: block;
+      margin-top: 4px;
+}
+
+@media screen and (max-width: 768px) {
+    body, html {
+        overflow: auto;
+    }
+    
+    .container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .left-side {
+        width: 100%;
+        height: 25vh;
+        padding: 20px 0;
+        box-sizing: border-box;
+    }
+
+    .left-side .marca-dagua {
+        display: none;
+    }
+    
+    .left-side .logo {
+        max-width: 200px;
+    }
+
+    .right-side {
+        width: 100%;
+        height: auto;
+        overflow-y: visible;
+    }
+
+    .header {
+        padding: 30px 0 15px 0;
+    }
+
+    .form-area {
+        padding: 30px 0;
+        border-radius: 0;
+    }
+}
