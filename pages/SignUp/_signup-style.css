@@ -151,6 +151,14 @@ button:hover {
     background: linear-gradient(90deg, #3477ff 0%, #1344c4 100%);
 }
 
+.error-message {
+      color: red;
+      font-size: 0.8em;
+      height: 1em;
+      display: block;
+      margin-top: 4px;
+}
+
 @media screen and (max-width: 768px) {
     body, html {
         overflow: auto;
