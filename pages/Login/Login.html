@@ -1,22 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-  <meta charset="UTF--8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
   <title>Login - Lista de Tarefas</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script type="module" src="/layouts/Header/Header.js"></script>
   <script type="module" src="/layouts/Main/Main.js"></script>
   <script type="module" src="/layouts/Footer/Footer.js"></script>
-  <style>
-    .error-message {
-      color: red;
-      font-size: 0.8em;
-      height: 1em;
-    }
-  </style>
 </head>
 
 <body>
@@ -47,14 +37,39 @@
       <a href="/pages/SignUp/SignUp.html">Criar uma nova conta</a>
       <a href="/pages/ForgotPassword/ForgotPassword.html">Esqueceu a senha?</a>
 
+    <div class="right-side">
+      <div class="header">
+        <h1>Task My</h1>
+        <h3>Login</h3>
+      </div>
+
+      <div class="form-area">
+        <form id="loginForm" novalidate method="POST" action="/pages/ListsView/ListsView.html">
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="hello@seu_email.com" required>
+            <span class="error-message" id="email-error"></span>
+          </div>
+
+          <div class="input-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="******" required minlength="6">
+            <span class="error-message" id="password-error"></span>
+          </div>
+
+          <button type="submit">LOGIN</button>
+        </form>
+
+        <div class="separator">ou</div>
+
+        <a href="../SignUp/SignUp.html" class="create-account-link">Criar uma nova conta</a>
+        
+        <a href="/pages/ForgotPassword/ForgotPassword.html" class="create-account-link" style="font-size: 0.9em; margin-top: 10px;">Esqueceu a senha?</a>
+      </div>
     </div>
-  </app-main>
+  </div>
 
   <app-footer></app-footer>
   <script src="./loginScript.js"></script>
 </body>
-
-</html>
-</body>
-
 </html>
