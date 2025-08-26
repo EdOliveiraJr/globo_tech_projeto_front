@@ -54,7 +54,7 @@ input:focus {
   width: 362px;
   margin-bottom: 10px;
   background-color: white;
-text-align: center; 
+  text-align: center; 
 }
 
 .list-item {
@@ -69,6 +69,22 @@ text-align: center;
 
   label {
     width: 100%;
+    
+    &:hover {
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
   }
+  
+  &:hover {
+    cursor: pointer;
+    background-color: #f0f0f0;
+  }
+  
+}
+
+i:hover {
+  cursor: pointer;
+  color: #007bff;
 }
 
