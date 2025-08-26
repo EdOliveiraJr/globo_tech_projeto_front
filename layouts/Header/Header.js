@@ -11,7 +11,7 @@ class Header extends HTMLElement {
     `;
 
     this.querySelector("#logout-icon").addEventListener("click", () => {
-      window.location.replace("/login.html");
+      window.location.replace("/pages/Login/Login.html");
     });
   }  
 }

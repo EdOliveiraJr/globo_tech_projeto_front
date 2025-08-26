@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Lista de Tarefas</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="../../style.css">
-  <script type="module" src="../../layouts/Header/Header.js"></script>
-  <script type="module" src="../../layouts/Main/Main.js"></script>
-  <script type="module" src="../../layouts/Footer/Footer.js"></script>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/layouts/Header/Header.js"></script>
+  <script type="module" src="/layouts/Main/Main.js"></script>
+  <script type="module" src="/layouts/Footer/Footer.js"></script>
   <style>
     .error-message {
       color: red;
@@ -26,7 +26,7 @@
       <h1>Login</h1>
       <p>Faça login para continuar</p>
 
-      <form id="loginForm" novalidate method="POST" action="/index.html">
+      <form id="loginForm" novalidate method="POST" action="/pages/ListsView/ListsView.html">
         <div>
           <label for="email">Email</label>
           <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" required>
@@ -51,8 +51,9 @@
   </app-main>
 
   <app-footer></app-footer>
-<script src="./loginScript.js"></script>
+  <script src="./loginScript.js"></script>
 </body>
+
 </html>
 </body>
 

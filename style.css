@@ -5,7 +5,7 @@
 @import './pages/ListsView/_lists-view-style.css';
 @import './pages/About/_about-style.css';
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,12 +14,10 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
   background-color: #f4f4f4;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 92.1vh auto;
 }
-
 
 h1 {
   color: #333;
@@ -31,10 +29,6 @@ nav a {
   margin-right: 15px;
   text-decoration: none;
   color: #007bff;
-}
-
-form {
-  margin-bottom: 20px;
 }
 
 input[type="text"] {
