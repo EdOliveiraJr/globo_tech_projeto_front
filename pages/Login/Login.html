@@ -7,7 +7,6 @@
   <title>Login - Task My</title>
   <link rel="stylesheet" href="_login-style.css">
   <style>
-    /* Estilo para mensagens de erro de validação do formulário */
     .error-message {
       color: red;
       font-size: 0.8em;
@@ -19,27 +18,18 @@
 </head>
 
 <body>
-  <div class="container">
-    <!-- Lado Esquerdo: Logo e Marca D'água -->
-    <div class="left-side">
-      <img src="../../assets/images/logo.png" alt="Logo TaskMy" class="logo">
-      <img src="../../assets/images/marca_dagua.svg" alt="Marca d'água" class="marca-dagua">
-    </div>
+  <app-main>
+    <div class="login-container">
+      <img src="../../assets/images/logo.png" alt="Logo TaskMy" width="200">
+      <h1>Login</h1>
+      <p>Faça login para continuar</p>
 
-    <!-- Lado Direito: Formulário de Login -->
-    <div class="right-side">
-      <div class="header">
-        <h1>Task My</h1>
-        <h3>Login</h3>
-      </div>
-
-      <div class="form-area">
-        <form id="loginForm" novalidate method="POST" action="../../index.html">
-          <div class="input-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" required>
-            <span class="error-message" id="email-error"></span>
-          </div>
+      <form id="loginForm" novalidate method="POST" action="/index.html">
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com" required>
+          <span class="error-message" id="email-error"></span>
+        </div>
 
           <div class="input-group">
             <label for="password">Senha</label>
@@ -52,11 +42,9 @@
 
         <div class="separator">ou</div>
 
-        <a href="../SignUp/SignUp.html" class="create-account-link">Criar uma nova conta</a>
-        
-        <!-- O link de "Esqueci a senha" pode ser estilizado de forma similar se necessário -->
-        <a href="../ForgotPassword/ForgotPassword.html" class="create-account-link" style="font-size: 0.9em; margin-top: 10px;">Esqueceu a senha?</a>
-      </div>
+      <a href="../SignUp/SignUp.html">Criar uma nova conta</a>
+      <a href="../ForgotPassword/ForgotPassword.html">Esqueceu a senha?</a>
+
     </div>
   </div>
 
