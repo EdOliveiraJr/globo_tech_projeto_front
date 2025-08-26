@@ -3,6 +3,7 @@
 @import './layouts/Main/_main.css';
 @import './pages/TasksView/_tasks-view-style.css';
 @import './pages/ListsView/_lists-view-style.css';
+@import './pages/About/_about-style.css';
 
 *{
   margin: 0;
