@@ -1,8 +1,9 @@
-@import "./layouts/Header/_header.css";
-@import "./layouts/Footer/_footer.css";
-@import "./layouts/Main/_main.css";
-@import "./pages/TasksView/_tasks-view-style.css";
-@import "./pages/ListsView/_lists-view-style.css";
+@import './layouts/Header/_header.css';
+@import './layouts/Footer/_footer.css';
+@import './layouts/Main/_main.css';
+@import './pages/TasksView/_tasks-view-style.css';
+@import './pages/ListsView/_lists-view-style.css';
+@import './pages/About/_about-style.css';
 
 * {
   margin: 0;
