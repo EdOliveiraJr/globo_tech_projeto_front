@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Conta - Task My</title>
+  <link rel="stylesheet" href="_signup-style.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-side">
+      <img src="../../assets/images/logo_escura.png" alt="Logo TaskMy" class="logo">
+      <img src="../../assets/images/marca_dagua.svg" alt="Marca d'água" class="marca-dagua">
+    </div>
+
+    <div class="right-side">
+      <div class="header">
+        <h1>Task My</h1>
+        <h3>Criar nova conta</h3>
+        <p class="login-link">Já é registrado? <a href="../Login/Login.html">Login</a></p>
+      </div>
+
+      <div class="form-area">
+        <form id="signUpForm" novalidate method="POST" action="../Login/Login.html">
+          <div class="input-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" placeholder="Seu Nome" required>
+            <span class="error-message" id="name-error"></span>
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="hello@seu_email.com" required>
+            <span class="error-message" id="email-error"></span>
+          </div>
+
+          <div class="input-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="******" required minlength="6">
+            <span class="error-message" id="password-error"></span>
+          </div>
+          
+          <div class="input-group">
+            <label for="confirmPassword">Confirmar Senha</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="******" required>
+            <span class="error-message" id="confirmPassword-error"></span>
+          </div>
+
+          <div class="input-group">
+            <label for="birthDate">Data de Nascimento</label>
+            <input type="date" id="birthDate" name="birthDate" required>
+            <span class="error-message" id="birthDate-error"></span>
+          </div>
+
+          <button type="submit">SIGN UP</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="./signupScript.js"></script>
+</body>
+
+</html>
