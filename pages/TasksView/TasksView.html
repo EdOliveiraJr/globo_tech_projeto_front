@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskMy</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <base href="/globo_tech_projeto_front/">
+  <script src="/script.js"></script>
+  <script type="module" src="/layouts/Footer/Footer.js"></script>
+  <script type="module" src="/layouts/Header/Header.js"></script>
+  <script type="module" src="/layouts/Main/Main.js"></script>
+</head>
+
+<body>
+  <app-header></app-header>
+  <app-main>
+    <div class="tasks-view-container">
+      <div class="title">
+        <i onclick="location.href='/pages/ListsView/ListsView.html'" class="material-icons">keyboard_return</i>
+        <h1>Tarefas Globo Tech</h1>
+      </div>
+      <div class="task-input-container">
+        <input type="text" id="newTaskInput" placeholder="Digite sua tarefa">
+        <button id="addTaskButton"><i class="material-icons">add</i></button>
+      </div>
+      
+      <div class="task-list">
+        <ul id="taskList">
+          <li> 
+            <div class="task-item">
+              <input type="checkbox" class="task-checkbox" checked>
+              <label style="text-decoration: line-through;">Estudar HTML</label>
+            </div>
+            <button class="delete-task-button"><i class="material-icons">delete</i></button>
+          </li>
+          <li> 
+            <div class="task-item">
+              <input type="checkbox" class="task-checkbox" checked>
+              <label style="text-decoration: line-through;">Estudar CSS</label>
+            </div>
+            <button class="delete-task-button"><i class="material-icons">delete</i></button>
+          </li>
+          <li> 
+            <div class="task-item">
+              <input type="checkbox" class="task-checkbox">
+              <label>Estudar JavaScript</label>
+            </div>
+            <button class="delete-task-button"><i class="material-icons">delete</i></button>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </app-main>
+  <app-footer></app-footer>
+</body>
+  
+</html>
