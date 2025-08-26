@@ -150,6 +150,13 @@ button:hover {
     color: #3477ff;
     text-decoration: underline;
 }
+ .error-message {
+      color: red;
+      font-size: 0.8em;
+      height: 1em;
+      display: block;
+      margin-top: 4px;
+    }
 
 @media screen and (max-width: 768px) {
     .container {
@@ -186,4 +193,7 @@ button:hover {
         padding-top: 40px;
         border-radius: 0;
     }
+
+
+
 }
