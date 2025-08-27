@@ -2,13 +2,13 @@
   display: flex;
   align-items: base;
   justify-content: space-between;
-  background-color: #007bff;
+  background:  linear-gradient(135deg, #0e167e 0%, #3477ff 100%);
   padding: 1rem;
   color: white;
-  /* position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0; */
+  right: 0;
 }
 
 .user-info {
