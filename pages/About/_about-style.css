@@ -1,17 +1,84 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 50px;
+  width: 100%;
+  gap: 16px;
+}
+
+.about-container-left {
+  width: 50%;
+}
+
+.about-container-left p {
+  text-align: justify;
+  margin: 15px;
+}
+
+.about-container-left ul {
+  margin: 15px;
+}
+
+.about-container-left li {
+  margin-bottom: 15px;
+  margin-left: 50px;
+}
+
+.about-container-left h4 {
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+.about-container-right {
+  width: 50%;
+
+  .repositorio {
+    margin-top: 10px;
+    img {
+      width: 150px;
+      margin-top: 20px;
+      
+      &:hover {
+        background-color: rgba(0, 81, 255, 0.123);
+        border-radius: 50%;
+      }
+    }
+
+  }
+
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
 .images-container {
-    display: flex;
-    flex-direction: row;
-    gap: 2%;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  border-radius: 5px;
 }
 
 .images-container img {
-    border-radius: 10%;
-    padding: 10px;
-    width: 80%;
+  border-radius: 50%;
+  padding: 10px;
+  width: 150px;
 }
 
-.images-container figure, .repositorio {
+.images-container figure,
+.repositorio {
   align-items: center;
   text-align: center;
 }
@@ -20,64 +87,27 @@
   margin-top: 3px;
 }
 
-.about-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.about {
-  width: 50%;
-  padding: 10px;
-  text-align: justify;
-}
-
-.about p {
-  margin-bottom: 2%;
-  width: 100%;
-}
-
-.about li {
-  margin-bottom: 2%;
-  margin-left: 50px;
-}
-
-.about h4 {
-  margin-left: 15px;
-  margin-bottom: 5px;
-}
-
-.repositorio {
-  width: 50%;
-  img:hover{
-    background-color: rgba(0, 81, 255, 0.123);
-    border-radius: 50%;
-  }
-}
-
-.repositorio img {
-  width: 20%;
-  margin-top: 20px;
-}
-
 @media (max-width: 600px) {
-  .images-container, .about-container {
+  .images-container,
+  .about-container {
     flex-direction: column;
     width: 80%;
     align-items: center;
     margin: 0 auto;
-    gap: 30px
+    gap: 30px;
   }
 
-  .about {
+  .about, .about-container {
     width: 100%;
+    padding: 10px;
+    
+    .about-container-left {
+      width: 100%;
+    }
   }
 
-  .repositorio {
-    width: 100%;
-  }
+  .images-container {
+    margin-bottom: 100px;
 
-  .repositorio img {
-    width: 50%;
   }
 }
