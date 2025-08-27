@@ -1,6 +1,10 @@
 class Footer extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = ` <footer class="footer"><span>Serpentes Tech ® 2025</span></footer>`;
+    this.innerHTML = ` <footer class="footer">
+      <a href="/pages/About/About.html">
+        <span>Serpentes Tech ® 2025</span>
+      </a>
+    </footer>`;
   }
 }
 
