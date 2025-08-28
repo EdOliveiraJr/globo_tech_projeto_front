@@ -16,7 +16,7 @@ body {
   margin: 0;
   background-color: #f4f4f4;
   display: grid;
-  grid-template-rows: 5.375rem 1fr auto;
+  grid-template-rows: 5.375rem 1fr 3rem;
 }
 
 h1 {
