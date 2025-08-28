@@ -4,7 +4,6 @@ html {
     height: 100%;
     font-family: Arial, sans-serif;
     background: #f1f1f1;
-    overflow: hidden;
 }
 
 .container {
@@ -20,6 +19,7 @@ html {
     justify-content: center;
     width: 50vw;
     position: relative;
+    overflow: hidden;
 }
 
 .left-side .logo {
