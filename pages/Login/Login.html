@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/globo_tech_projeto_front/">
   <title>Entrar - TaskMy</title>
   <link rel="stylesheet" href="_login-style.css">
 
@@ -23,7 +24,7 @@
       </div>
 
       <div class="form-area">
-        <form id="loginForm" novalidate method="POST" action="/globo_tech_projeto_front/pages/ListsView/ListsView.html">
+        <form id="loginForm" novalidate method="POST" action="">
           <div class="input-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="usuario123@email.com" required>
@@ -36,7 +37,7 @@
             <span class="error-message" id="password-error"></span>
           </div>
 
-          <button type="submit">ENTRAR</button>
+          <button type="submit" onclick="window.location.href='/globo_tech_projeto_front/pages/ListsView/ListsView.html'">ENTRAR</button>
         </form>
 
         <div class="separator">ou</div>
