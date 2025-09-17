@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('forgotPasswordForm');
     if (form) {
         form.addEventListener('submit', function (event) {
+            event.preventDefault(); // previne o envio padrão sempre para controlar fluxo
             const emailInput = document.getElementById('email');
             const emailError = document.getElementById('email-error');
             emailError.textContent = '';
@@ -9,10 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!emailInput.value) {
                 emailError.textContent = 'O campo de email é obrigatório.';
-                event.preventDefault();
             } else if (!emailRegex.test(emailInput.value)) {
                 emailError.textContent = 'Por favor, insira um email válido.';
-                event.preventDefault();
+            } else {
+                // Se passar na validação, mostrar confirmaçao e redirecionar se prosseguir
+                const proceed = confirm('Email enviado com sucesso! Clique em "OK" para prosseguir para a página principal.');
+                if (proceed) {
+                    window.location.href = '/pages/Login/Login.html';
+                }
             }
         });
     }
