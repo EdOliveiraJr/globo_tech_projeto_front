@@ -6,7 +6,7 @@ class Header extends HTMLElement {
           <img src="/assets/images/logo.png" width="150px" alt="Logo da Empresa" class="logo">
         </a>
         <div class="user-info">
-          <span>Fulano de tal</span>
+          <span>Bem-vindo, Edvaldo!</span>
           <span><i id="logout-icon" class="material-icons">logout</i></span>
         </div>
       </header>
