@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Edvaldo",
+      "email": "edvaldo@example.com",
+      "lists": [
+        {
+          "id": 1,
+          "name": "Lista 1",
+          "completed": false,
+          "tasks": ["tarefa1", "tarefa2"],
+          "createdAt": "2024-06-01T10:00:00Z",
+          "updatedAt": "2024-06-01T10:00:00Z",
+          "deletedAt": null,
+          "completedAt": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Maria",
+      "email": "maria@example.com",
+      "lists": [
+        {
+          "id": 2,
+          "name": "Lista 2",
+          "completed": true,
+          "tasks": ["tarefaA", "tarefaB"],
+          "createdAt": "2024-06-02T11:00:00Z",
+          "updatedAt": "2024-06-02T12:00:00Z",
+          "deletedAt": null,
+          "completedAt": "2024-06-03T09:00:00Z"
+        }
+      ]
+    }
+  ]
+}
