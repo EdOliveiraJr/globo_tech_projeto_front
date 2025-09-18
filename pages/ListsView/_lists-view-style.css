@@ -88,3 +88,28 @@ i:hover {
   color: #007bff;
 }
 
+.delete-list-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #c82333;
+  }
+}
+
+.edit-list-button {
+  background-color: #e6bb30;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #aca790;
+  }
+}
