@@ -66,7 +66,7 @@ window.addEventListener("load", () => {
 
     if (deleteButton) {
       deleteButton.addEventListener("click", () => {
-        if (confirm('Tem certeza que deseja deletar a lista "${label.textContent}"?')) {
+        if (confirm(`Tem certeza que deseja deletar a lista "${label.textContent}"?`)) {
           li.remove();
         }
       });
