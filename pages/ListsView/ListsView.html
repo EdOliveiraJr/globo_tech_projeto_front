@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaskMy</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=edit" rel="stylesheet"/>
   <link rel="stylesheet" href="/style.css">
-  <base href="/globo_tech_projeto_front/">
-  <script src="/script.js"></script>
+  <!--<base href="/globo_tech_projeto_front/">-->
+  <script src="listsViewScript.js"></script>
+  <!--<script src="/script.js"></script>-->
   <script type="module" src="/layouts/Footer/Footer.js"></script>
   <script type="module" src="/layouts/Header/Header.js"></script>
   <script type="module" src="/layouts/Main/Main.js"></script>
@@ -30,12 +32,16 @@
             <div class="list-item">
               <label>Lista de tarefas de Casa</label>
             </div>
+            <button class="edit-list-button"><i class="material-icons">edit</i></button>
+            <button class="delete-list-button"><i class="material-icons">delete</i></button>
           </li>
 
           <li>
             <div class="list-item">
               <label>Lista de tarefas do Trabalho</label>
             </div>
+            <button class="edit-list-button"><i class="material-icons">edit</i></button>
+            <button class="delete-list-button"><i class="material-icons">delete</i></button>
           </li>
 
           <li>
@@ -43,12 +49,16 @@
               <label onclick="location.href='../../pages/TasksView/TasksView.html'">Lista de tarefas da
                 Globotech</label>
             </div>
+            <button class="edit-list-button"><i class="material-icons">edit</i></button>
+            <button class="delete-list-button"><i class="material-icons">delete</i></button>
           </li>
 
           <li>
             <div class="list-item">
               <label>Lista de tarefas da Faculdade</label>
             </div>
+            <button class="edit-list-button"><i class="material-icons">edit</i></button>
+            <button class="delete-list-button"><i class="material-icons">delete</i></button>
           </li>
         </ul>
       </div>
