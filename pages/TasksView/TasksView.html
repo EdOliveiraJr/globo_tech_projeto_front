@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaskMy</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=edit" rel="stylesheet"/>
   <link rel="stylesheet" href="/style.css">
-  <base href="/globo_tech_projeto_front/">
-  <script src="/script.js"></script>
+  <!--<base href="/globo_tech_projeto_front/">
+  <script src="/script.js"></script>-->
+  <script src="tasksViewScript.js"></script>
   <script type="module" src="/layouts/Footer/Footer.js"></script>
   <script type="module" src="/layouts/Header/Header.js"></script>
   <script type="module" src="/layouts/Main/Main.js"></script>
@@ -32,15 +34,17 @@
           <li> 
             <div class="task-item">
               <input type="checkbox" class="task-checkbox" checked>
-              <label style="text-decoration: line-through;">Estudar HTML</label>
+              <label>Estudar HTML</label>
             </div>
+            <button class="edit-task-button"><i class="material-icons">edit</i></button>
             <button class="delete-task-button"><i class="material-icons">delete</i></button>
           </li>
           <li> 
             <div class="task-item">
               <input type="checkbox" class="task-checkbox" checked>
-              <label style="text-decoration: line-through;">Estudar CSS</label>
+              <label>Estudar CSS</label>
             </div>
+            <button class="edit-task-button"><i class="material-icons">edit</i></button>
             <button class="delete-task-button"><i class="material-icons">delete</i></button>
           </li>
           <li> 
@@ -48,6 +52,7 @@
               <input type="checkbox" class="task-checkbox">
               <label>Estudar JavaScript</label>
             </div>
+            <button class="edit-task-button"><i class="material-icons">edit</i></button>
             <button class="delete-task-button"><i class="material-icons">delete</i></button>
           </li>
         </ul>
