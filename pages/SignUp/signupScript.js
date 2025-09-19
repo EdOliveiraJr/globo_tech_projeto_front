@@ -4,14 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
         signUpForm.addEventListener("submit", async function (event) {
             event.preventDefault();
 
-            
+            // --- Coleta e Validação dos Dados do Formulário ---
             const name = document.getElementById("name").value.trim();
             const email = document.getElementById("email").value.trim();
             const password = document.getElementById("password").value;
             const confirmPassword = document.getElementById("confirmPassword").value;
             const birthDate = document.getElementById("birthDate").value;
 
-            
             let valid = true;
             document.getElementById("name-error").textContent = "";
             document.getElementById("email-error").textContent = "";
@@ -42,11 +41,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!valid) return;
 
+            // --- VERIFICAÇÃO DE E-MAIL EXISTENTE ---
+            try {
+                const emailCheckResponse = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(email)}`);
+                const existingUsers = await emailCheckResponse.json();
+                if (existingUsers.length > 0) {
+                    document.getElementById("email-error").textContent = "Este email já está em uso.";
+                    return; // Interrompe o envio do formulário
+                }
+            } catch (error) {
+                alert("Erro ao verificar o email. Tente novamente.");
+                console.error("Erro na verificação de email:", error);
+                return;
+            }
+            
+            // --- CRIAÇÃO DO NOVO USUÁRIO ---
             const newUser = {
                 name,
                 email,
                 password,
-                birthDate
+                birthDate,
+                lists: [] // Garante que o novo usuário sempre tenha a propriedade 'lists'
             };
 
             try {
@@ -68,3 +83,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+

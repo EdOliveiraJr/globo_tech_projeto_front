@@ -1,145 +1,178 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Pega o ID do usuário que está logado
-    const loggedInUserId = sessionStorage.getItem('loggedInUserId');
+  
+  const API_URL = "http://localhost:3000/users";
+  const addListButton = document.getElementById("addListButton");
+  const newListInput = document.getElementById("newListInput");
+  const listsList = document.getElementById("listsList");
 
-    // Se não houver usuário logado, redireciona para a página de login
-    if (!loggedInUserId) {
-        alert('Você precisa estar logado para ver suas listas.');
-        window.location.href = '../Login/Login.html';
-        return;
+  
+  const userId = sessionStorage.getItem("loggedInUserId");
+  if (!userId) {
+    alert("Você precisa estar logado para ver suas listas.");
+    window.location.href = '../Login/Login.html';
+    return; 
+  }
+
+  /**
+   * Busca os dados completos do usuário na API.
+   * @returns {Promise<object>} 
+   */
+  async function fetchUserData() {
+    const response = await fetch(`${API_URL}/${userId}`);
+    if (!response.ok) {
+      throw new Error("Não foi possível carregar os dados do usuário.");
     }
+    return response.json();
+  }
 
-    const addListButton = document.getElementById('addListButton');
-    const newListInput = document.getElementById('newListInput');
-    const listsListContainer = document.getElementById('listsList');
-
-    const API_URL = `http://localhost:3000/users/${loggedInUserId}`;
-
-    // Função para buscar os dados do usuário (incluindo as listas)
-    async function fetchUserData() {
-        try {
-            const response = await fetch(API_URL);
-            if (!response.ok) throw new Error('Não foi possível carregar os dados do usuário.');
-            return await response.json();
-        } catch (error) {
-            console.error('Erro:', error);
-            alert('Falha ao comunicar com o servidor.');
-        }
+  /**
+   * Atualiza os dados do usuário na API.
+   * @param {object} userData - O objeto completo do usuário a ser salvo.
+   */
+  async function updateUserData(userData) {
+   
+    try {
+      const response = await fetch(`${API_URL}/${userData.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      });
+      if (!response.ok) {
+        throw new Error("Falha ao salvar as alterações no servidor.");
+      }
+    } catch (error) {
+      console.error("Erro ao atualizar dados:", error);
+      alert(error.message); 
     }
+  }
 
-    // Função para salvar as alterações no usuário (PATCH request)
-    async function updateUserData(updatedUser) {
-        try {
-            const response = await fetch(API_URL, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ lists: updatedUser.lists })
-            });
-            if (!response.ok) throw new Error('Não foi possível salvar as alterações.');
-            return await response.json();
-        } catch (error) {
-            console.error('Erro:', error);
-            alert('Falha ao salvar as alterações no servidor.');
-        }
-    }
+  /**
+   * Renderiza uma única lista na interface.
+   * @param {object} list - O objeto da lista a ser renderizada.
+   */
+  function renderList(list) {
+    const li = document.createElement("li");
+    li.dataset.listId = list.id;
 
-    // Função para renderizar (desenhar) as listas na tela
-    function renderLists(lists = []) {
-        listsListContainer.innerHTML = ''; // Limpa a lista atual
-        lists.forEach(list => {
-            const li = document.createElement('li');
+    const listItemDiv = document.createElement("div");
+    listItemDiv.classList.add("list-item");
 
-            const listItemDiv = document.createElement('div');
-            listItemDiv.classList.add('list-item');
+    const label = document.createElement("label");
+    label.textContent = list.title;
+    label.addEventListener("click", () => {
+      
+      window.location.href = `../TasksView/TasksView.html?listId=${list.id}`;
+    });
+    listItemDiv.appendChild(label);
 
-            const label = document.createElement('label');
-            label.textContent = list.title;
-            listItemDiv.appendChild(label);
-            li.appendChild(listItemDiv);
+    const editButton = document.createElement("button");
+    editButton.classList.add("edit-list-button");
+    editButton.innerHTML = '<i class="material-icons">edit</i>';
+    editButton.addEventListener("click", () => handleEditList(list.id));
 
-            // Botão de Editar
-            const editButton = document.createElement('button');
-            editButton.classList.add('edit-list-button');
-            editButton.innerHTML = '<i class="material-icons">edit</i>';
-            editButton.addEventListener('click', () => handleEditList(list.id));
-            li.appendChild(editButton);
-
-            // Botão de Deletar
-            const deleteButton = document.createElement('button');
-            deleteButton.classList.add('delete-list-button');
-            deleteButton.innerHTML = '<i class="material-icons">delete</i>';
-            deleteButton.addEventListener('click', () => handleDeleteList(list.id));
-            li.appendChild(deleteButton);
-
-            listsListContainer.appendChild(li);
-        });
-    }
-
-    // Função para ADICIONAR uma nova lista
-    async function handleAddList() {
-        const listTitle = newListInput.value.trim();
-        if (!listTitle) {
-            alert('Por favor, insira um nome para a lista.');
-            return;
-        }
-
-        const user = await fetchUserData();
-        if (!user) return;
-
-        const newList = {
-            id: new Date().getTime().toString(), // ID único baseado no tempo
-            title: listTitle,
-            tasks: []
-        };
-
-        user.lists.push(newList);
-        const updatedUser = await updateUserData(user);
-        if (updatedUser) {
-            renderLists(updatedUser.lists);
-            newListInput.value = ''; // Limpa o input
-        }
-    }
-
-    // Função para EDITAR uma lista existente
-    async function handleEditList(listId) {
-        const newTitle = prompt('Digite o novo nome da lista:');
-        if (!newTitle || !newTitle.trim()) return;
-
-        const user = await fetchUserData();
-        if (!user) return;
-
-        const listToEdit = user.lists.find(list => list.id === listId);
-        if (listToEdit) {
-            listToEdit.title = newTitle.trim();
-            const updatedUser = await updateUserData(user);
-            if (updatedUser) {
-                renderLists(updatedUser.lists);
-            }
-        }
-    }
-
-    // Função para DELETAR uma lista
-    async function handleDeleteList(listId) {
-        if (!confirm('Tem certeza que deseja deletar esta lista?')) return;
-
-        const user = await fetchUserData();
-        if (!user) return;
-
-        user.lists = user.lists.filter(list => list.id !== listId);
-        const updatedUser = await updateUserData(user);
-        if (updatedUser) {
-            renderLists(updatedUser.lists);
-        }
-    }
-
-    // Carrega as listas do usuário quando a página é aberta
-    async function initialize() {
-        const user = await fetchUserData();
-        if (user) {
-            renderLists(user.lists);
-        }
-    }
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-list-button");
+    deleteButton.innerHTML = '<i class="material-icons">delete</i>';
+    deleteButton.addEventListener("click", () => handleDeleteList(list.id));
     
-    addListButton.addEventListener('click', handleAddList);
-    initialize();
+    li.appendChild(listItemDiv); 
+    li.appendChild(editButton);
+    li.appendChild(deleteButton);
+    listsList.appendChild(li);
+  }
+  
+  /**
+   * Lida com a edição do nome de uma lista.
+   * @param {string} listId - O ID da lista a ser editada.
+   */
+  async function handleEditList(listId) {
+    const user = await fetchUserData();
+    const listToEdit = user.lists.find(l => l.id === listId);
+    if (!listToEdit) return;
+
+    const newName = prompt("Digite o novo nome da lista:", listToEdit.title);
+    if (newName && newName.trim() !== "" && newName.trim() !== listToEdit.title) {
+      listToEdit.title = newName.trim();
+      await updateUserData(user);
+      loadLists(); 
+    }
+  }
+
+  /**
+   * Lida com a exclusão de uma lista.
+   * @param {string} listId - O ID da lista a ser excluída.
+   */
+  async function handleDeleteList(listId) {
+    const user = await fetchUserData();
+    const listToDelete = user.lists.find(l => l.id === listId);
+    if (!listToDelete) return;
+    
+    if (confirm(`Tem certeza que deseja deletar a lista "${listToDelete.title}"?`)) {
+      user.lists = user.lists.filter(l => l.id !== listId);
+      await updateUserData(user);
+      loadLists(); 
+    }
+  }
+
+ 
+  async function handleAddList() {
+    const title = newListInput.value.trim();
+    if (title === "") {
+      alert("Digite um nome para a lista.");
+      return;
+    }
+
+    try {
+      const user = await fetchUserData();
+      
+      const newList = {
+        id: crypto.randomUUID(),
+        title: title,
+        tasks: []
+      };
+
+      
+      if (!Array.isArray(user.lists)) {
+        user.lists = [];
+      }
+      user.lists.push(newList);
+
+      await updateUserData(user);
+      renderList(newList); 
+      newListInput.value = "";
+
+    } catch (error) {
+      console.error("Erro ao adicionar lista:", error);
+      alert("Não foi possível adicionar a lista.");
+    }
+  }
+
+  
+  async function loadLists() {
+    try {
+      const user = await fetchUserData();
+      listsList.innerHTML = ''; 
+
+      if (user.lists && user.lists.length > 0) {
+        user.lists.forEach(list => renderList(list));
+      } else {
+        listsList.innerHTML = '<li><p>Nenhuma lista encontrada. Crie uma nova!</p></li>';
+      }
+    } catch (error) {
+      console.error("Erro ao carregar listas:", error);
+      alert(error.message);
+    }
+  }
+
+  
+  addListButton.addEventListener("click", handleAddList);
+  
+  newListInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      handleAddList();
+    }
+  });
+  
+  
+  loadLists();
 });
