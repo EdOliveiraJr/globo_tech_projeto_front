@@ -8,24 +8,14 @@
       "authenticated": true,
       "lists": [
         {
-          "id": "1",
-          "title": "Trabalho",
-          "tasks": [
-            {
-              "id": "1",
-              "description": "Finalizar relatório",
-              "completed": "false",
-              "createdAt": "2025-08-20",
-              "completedAt": null
-            },
-            {
-              "id": "2",
-              "description": "Enviar e-mail para equipe",
-              "completed": "true",
-              "createdAt": "2025-08-19",
-              "completedAt": "2025-08-20"
-            }
-          ]
+          "id": "1758301547278",
+          "title": "esse foi editado",
+          "tasks": []
+        },
+        {
+          "id": "1758301683487",
+          "title": "é para ficar esse aqui presta atenção caceta",
+          "tasks": []
         }
       ]
     },
@@ -37,24 +27,14 @@
       "authenticated": false,
       "lists": [
         {
-          "id": "1",
-          "title": "Trabalho",
-          "tasks": [
-            {
-              "id": "t01",
-              "description": "Finalizar relatório",
-              "completed": "false",
-              "createdAt": "2025-08-20",
-              "completedAt": null
-            },
-            {
-              "id": "t02",
-              "description": "Enviar e-mail para equipe",
-              "completed": "true",
-              "createdAt": "2025-08-19",
-              "completedAt": "2025-08-20"
-            }
-          ]
+          "id": "1758301821059",
+          "title": "fulano",
+          "tasks": []
+        },
+        {
+          "id": "1758301827633",
+          "title": "cicrano",
+          "tasks": []
         }
       ]
     }
