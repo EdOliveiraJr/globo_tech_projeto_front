@@ -92,6 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
             tasks: []
         };
 
+        if (!user.lists) { 
+        user.lists = []; // Inicializa como array vazio se não existir
+        }
+
         user.lists.push(newList);
         const updatedUser = await updateUserData(user);
         if (updatedUser) {
