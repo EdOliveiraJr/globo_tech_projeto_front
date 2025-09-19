@@ -5,25 +5,43 @@
       "name": "Edvaldo",
       "email": "edvaldo@example.com",
       "password": "senha123",
-      "authenticated": true,
+      "birthDate": "1990-01-15",
       "lists": [
         {
-          "id": "1",
-          "title": "Trabalho",
+          "id": "list-1-1",
+          "title": "Tarefas de Casa",
           "tasks": [
             {
-              "id": "1",
-              "description": "Finalizar relatório",
-              "completed": "false",
-              "createdAt": "2025-08-20",
+              "id": "task-1-1-1",
+              "description": "Lavar a louça",
+              "completed": false,
+              "createdAt": "2025-09-19T10:00:00Z",
               "completedAt": null
             },
             {
-              "id": "2",
-              "description": "Enviar e-mail para equipe",
-              "completed": "true",
-              "createdAt": "2025-08-19",
-              "completedAt": "2025-08-20"
+              "id": "task-1-1-2",
+              "description": "Passear com o cachorro",
+              "completed": true,
+              "createdAt": "2025-09-18T15:00:00Z",
+              "completedAt": "2025-09-18T16:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": "list-1-2",
+          "title": "Projeto GloboTech",
+          "tasks": []
+        },
+        {
+          "id": "f8611989-2a41-459c-8d82-285bcc39fb65",
+          "title": "novalistaed",
+          "tasks": [
+            {
+              "id": "49c14af4-342b-4a8e-8feb-bef64d09f73a",
+              "description": "fdsadfsadf",
+              "completed": false,
+              "createdAt": "2025-09-19T20:34:45.070Z",
+              "completedAt": null
             }
           ]
         }
@@ -31,28 +49,43 @@
     },
     {
       "id": "2",
-      "namer": "Maria Silva",
+      "name": "Maria Silva",
       "email": "maria@email.com",
       "password": "senhaSegura",
-      "authenticated": false,
+      "birthDate": "1995-05-20",
       "lists": [
         {
-          "id": "1",
-          "title": "Trabalho",
+          "id": "list-2-1",
+          "title": "Compras do Mês",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "40f4",
+      "name": "Fernando",
+      "email": "fernando@gmail.com",
+      "password": "123456",
+      "birthDate": "2020-03-21",
+      "lists": []
+    },
+    {
+      "id": "2597",
+      "name": "user",
+      "email": "user@email.com",
+      "password": "123456",
+      "birthDate": "1900-10-15",
+      "lists": [
+        {
+          "id": "a0a7dbcf-974a-4b03-9c53-074a812e0a5d",
+          "title": "listanovauser",
           "tasks": [
             {
-              "id": "t01",
-              "description": "Finalizar relatório",
-              "completed": "false",
-              "createdAt": "2025-08-20",
+              "id": "2ddf6794-8b24-4ef0-ba30-f3754a68c225",
+              "description": "tarefanova",
+              "completed": false,
+              "createdAt": "2025-09-19T20:36:10.384Z",
               "completedAt": null
-            },
-            {
-              "id": "t02",
-              "description": "Enviar e-mail para equipe",
-              "completed": "true",
-              "createdAt": "2025-08-19",
-              "completedAt": "2025-08-20"
             }
           ]
         }
